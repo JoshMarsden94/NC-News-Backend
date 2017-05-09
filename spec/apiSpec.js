@@ -12,6 +12,7 @@ require('../server');
 
 let sampleIds, invalidId, incorrectId;
 before(function (done) {
+    this.timeout(10000); // added timeout of 10 seconds, to allow seeding to complete because of my s**t slow mac
     mongoose.connection.once('connected', () => {
         mongoose.connection.db.dropDatabase(() => {
             console.log('Dropped DB');

@@ -12,7 +12,6 @@ const voteComment = require('../controllers/voteComment');
 const deleteComment = require('../controllers/deleteComment');
 const getUserProfile = require('../controllers/getUserProfile');
 
-
 router.route('/').get(function (req, res) {
     res.status(200).send({status: 'OK'});
 });
