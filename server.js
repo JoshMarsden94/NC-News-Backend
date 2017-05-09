@@ -19,7 +19,7 @@ mongoose.connect(db, function (err) {
 
 app.use(bodyParser.json());
 
-app.all('*', function(req, res, next) {
+app.all('*', function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -49,4 +49,3 @@ app.use(function (error, req, res, next) {
 app.use(function (error, req, res) {
     return res.status(500).send({error: error});
 });
-
