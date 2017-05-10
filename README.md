@@ -11,19 +11,28 @@ The API and all of its endpoints have been fully tested using Mocha, Chai and Su
 ```s
 node -v
 ```
-If you do not have the correct version of node click [here](https://nodejs.org/en/download/) to install.
+If you do not have the correct version of node click [here](https://nodejs.org/en/download/) to install the latest version.
 
-To now run the tests please clone the project, cd into the repo, install the dependencies and then run the tests:
+Then please ensure you have mongo installed, guide can be found [here](https://docs.mongodb.com/manual/installation/)
+
+To now run the tests please clone the project, cd into the repo and install the dependencies:
 ```s
 git clone https://github.com/JoshMarsden94/NC-News-Backend.git
 
 cd NC-News-Backend
 
 npm install
-
-npm test
 ```
 
+Once all dependencies have been installed please split your terminal to have a second shell open. In the second shell please run mongodb by entering the following command:
+```s
+mongod
+```
+
+Now you can run the tests in your original shell by entering:
+```s
+npm test
+```
 
 ## Built With
 
