@@ -1,88 +1,69 @@
-## Northcoders News API
+# Northcoders News API
 
-### Background
+Northcoders News API is a RESTful api which has been created using Node.js, Express.js, MongoDB and Mongoose. The MongoDB database is hosted on mLabs and deployed through Heroku. You can visit the API [here.](https://gentle-wave-92796.herokuapp.com/api)
 
-We will be building the API which we used in the Northcoders News Sprint during the
-Front End block of the course. Your mongoose models and a Database seed file have been done for you.
+This repo contains all the work that has gone into the backend of the project. To find out more about the front end which the Northcoders News API supplies, please visit my front end repo [here!](https://github.com/JoshMarsden94/NC-News-Frontend)
 
-Look closely at the response you get for each route on http://northcoders-news-api.herokuapp.com/ You will notice that we also send data such as the comment and vote count for each article. You will need to think carefully about how to do this in your API.
+## Getting Started
 
-You will need to get all your routes built up first as you can share the functionality between you `GET comments by id` route and the comment count on the articles response for example.
-
-### Mongoose Documentation
-
-The below are all model methods that you call on your models.
-
-* [find](http://mongoosejs.com/docs/api.html#model_Model.find)
-* [findOne](http://mongoosejs.com/docs/api.html#model_Model.findOne)
-* [findOneAndUpdate](http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate)
-* [findOneAndRemove](http://mongoosejs.com/docs/api.html#model_Model.findOneAndRemove)
-* [findById](http://mongoosejs.com/docs/api.html#model_Model.findById)
-* [findByIdAndUpdate](http://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate)
-* [findByIdAndRemove](http://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove)
-* [update](http://mongoosejs.com/docs/api.html#model_Model.update)
-
-There are also some methods that can be called on the documents that get returned. These are:
-
-* [remove](http://mongoosejs.com/docs/api.html#model_Model-remove)
-* [save](http://mongoosejs.com/docs/api.html#model_Model-save)
-* [count](http://mongoosejs.com/docs/api.html#model_Model.count)
-
-### Tasks
-
-1. Seed your database with the main seed file `$ node seed/seed.js`
-2. Build your express App
-3. Mount an API Router onto your app
-4. Define the routes described below
-5. Define controller functions for each of your routes
-6. Once you have all your routes start to tackle responding with the vote and comment counts on article requests like this http://northcoders-news-api.herokuapp.com/api/articles
-7. Test your api routes!
-
-### Routes
+The API and all of its endpoints have been fully tested using Mocha, Chai and Supertest. If you would like to run the tests please ensure you have Node v7.0.0 or higher installed. You can check this by entering the following command into your terminal:
+```s
+node -v
 ```
+If you do not have the correct version of node click [here](https://nodejs.org/en/download/) to install.
+
+To now run the tests please clone the project, cd into the repo, install the dependencies and then run the tests:
+```s
+git clone https://github.com/JoshMarsden94/NC-News-Backend.git
+
+cd NC-News-Backend
+
+npm install
+
+npm test
+```
+
+## API Routes
+
+### The availbale endpoints for the API are listed below;
+
+```s
 GET /api/topics
 ```
 Get all the topics
 
-```
+```s
 GET /api/topics/:topic_id/articles
 ```
 Return all the articles for a certain topic
 
-```
+```s
 GET /api/articles
 ```
 Returns all the articles
 
-```
+```s
 GET /api/articles/:article_id/comments
 ```
 Get all the comments for a individual article
 
-```
+```s
 POST /api/articles/:article_id/comments
 ```
-Add a new comment to an article. This route requires a JSON body with a comment key and value pair
-e.g: {"comment": "This is my new comment"}
+Add a new comment to an article. This route requires a JSON body with a comment key and value pair e.g: {"comment": "This is my new comment"}
 
-```
+```s
 PUT /api/articles/:article_id
 ```
-Increment or Decrement the votes of an article by one. This route requires a vote query of 'up' or 'down'
-e.g: /api/articles/:article_id?vote=up
+Increment or Decrement the votes of an article by one. This route requires a vote query of 'up' or 'down' e.g: /api/articles/:article_id?vote=up
 
-```
+```s
 PUT /api/comments/:comment_id
 ```
-Increment or Decrement the votes of a comment by one. This route requires a vote query of 'up' or 'down'
-e.g: /api/comments/:comment_id?vote=down
+Increment or Decrement the votes of a comment by one. This route requires a vote query of 'up' or 'down' e.g: /api/comments/:comment_id?vote=down
 
-```
+```s
 DELETE /api/comments/:comment_id
 ```
 Deletes a comment
 
-```
-GET /api/users/:username
-```
-Returns a JSON object with the profile data for the specified user.
