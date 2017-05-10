@@ -4,6 +4,7 @@ Northcoders News API is a RESTful api which has been created using Node.js, Expr
 
 This repo contains all the work that has gone into the backend of the project. To find out more about the front end which the Northcoders News API supplies, please visit my front end repo [here!](https://github.com/JoshMarsden94/NC-News-Frontend)
 
+
 ## Getting Started
 
 The API and all of its endpoints have been fully tested using Mocha, Chai and Supertest. If you would like to run the tests please ensure you have Node v7.0.0 or higher installed. You can check this by entering the following command into your terminal:
@@ -22,6 +23,17 @@ npm install
 
 npm test
 ```
+
+
+## Built With
+
+- [Express](https://expressjs.com/) - 
+- [MongoDB](https://www.mongodb.com/) - Document-oriented database system used
+- [Mongoose](http://mongoosejs.com/) - MongoDB object modelling tool
+- [Mocha](https://mochajs.org/) - Node.js test framework
+- [Chai](http://chaijs.com/) - TDD/BDD Assetion Library used
+- [Supertest](https://github.com/visionmedia/supertest) - High-level abstraction for testing HTTP
+
 
 ## API Routes
 
