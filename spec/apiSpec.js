@@ -7,32 +7,28 @@ const seed = require('../seed/test.seed');
 const PORT = require('../config').PORT[process.env.NODE_ENV];
 const ROOT = `http://localhost:${PORT}/api`;
 
-// server 
 require('../server');
 
 let sampleIds, invalidId, incorrectId;
 before(function (done) {
-    this.timeout(10000); // added timeout of 10 seconds, to allow seeding to complete because of my s**t slow mac
+    this.timeout(10000); // added timeout of 10 seconds, to allow seeding to complete on my mac
     mongoose.connection.once('connected', () => {
         mongoose.connection.db.dropDatabase(() => {
             console.log('Dropped DB');
             seed((idsObj) => {
                 sampleIds = idsObj;
-                // also save some invalid IDs to test for errors
-                // explain the difference between an invalid/incorrect ID
                 invalidId = sampleIds.article_id.toString().split('');
                 invalidId[invalidId.length - 1] =  '5345';
                 invalidId = invalidId.join('');
 
-                // take an ID from another database
                 incorrectId = '5841a06fed9db244975922c3';
-                console.log(invalidId);
 
                 done();
             });
         });
     });
 });
+
 describe('API ROUTES', () => {
     describe('GET /api', () => {
         it('should return the status is OK', (done) => {
@@ -264,6 +260,4 @@ describe('API ROUTES', () => {
                 });
         });  
     }); 
-
 });
-
