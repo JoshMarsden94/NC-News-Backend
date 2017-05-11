@@ -12,5 +12,3 @@ function getComment (req, res, next) {
 }
 
 module.exports = getComment;
-
-// invalidId/incorrectId should be a 404 not found
